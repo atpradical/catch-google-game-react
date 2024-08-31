@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Catch the Google</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="/src/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/src/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div class="background">
+	<div class="container">
+		<div id="game-settings" class="settings-container flex-wrapper">
+			<div class="dropdown">
+				<label for="grid-size">Grid size</label>
+				<select id="grid-size">
+					<option value="4x4">4x4</option>
+					<option value="5x5">5x5</option>
+					<option value="6x6">6x6</option>
+					<option value="7x7">7x7</option>
+					<option value="10x7">10x7</option>
+				</select>
+			</div>
+			<div class="dropdown">
+				<label for="points-to-win">Points to win</label>
+				<select id="points-to-win">
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="50">50</option>
+					<option value="60">60</option>
+					<option value="80">80</option>
+				</select>
+			</div>
+			<div class="dropdown">
+				<label for="game-time">Time</label>
+				<select id="game-time">
+					<option value="30000">30 sec</option>
+					<option value="45000">45 sec</option>
+					<option value="60000">1 min</option>
+					<option value="120000">2 min</option>
+				</select>
+			</div>
+			<div class="dropdown">
+				<label for="game-mode">Game mode</label>
+				<select id="game-mode">
+					<option value="single">Single</option>
+					<option value="multiplayer">Multiplayer</option>
+				</select>
+			</div>
+		</div>
+		<div id="game-container" class="game-container flex-wrapper">
+			<button id='game-button' class="btn"></button>
+			<div id="game-results-block"></div>
+			<table id="game-grid"></table>
+			<div id="game-statistics" class="hidden"></div>
+		</div>
+	</div>
+</div>
+
+
+<script src="front.js" type="module"></script>
+</body>
+</html>
