@@ -1,0 +1,131 @@
+.button {
+  all: unset;
+
+  cursor: pointer;
+
+  display: inline-flex;
+  flex-direction: row;
+  gap: var(--gap-s);
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  padding: 6px 28px;
+
+  font-family: var(--font-family-primary), sans-serif;
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-m);
+  color: var(--color-light-100);
+
+  border-radius: var(--border-radius-s);
+
+  &:focus-visible {
+    outline: var(--outline-width-m) solid var(--color-info-500);
+  }
+}
+
+.primary {
+  background-color: var(--color-accent-500);
+  box-shadow: 0 4px 18px 0 rgb(140 97 255 / 15%);
+
+  &:hover {
+    background-color: var(--color-accent-300);
+  }
+
+  &:active {
+    background-color: var(--color-accent-700);
+  }
+
+  &:disabled {
+    color: var(--color-light-900);
+    background-color: var(--color-accent-900);
+  }
+
+  @media screen and (width <= 320px) {
+    padding: 6px 14px;
+    font-size: var(--font-size-xs);
+  }
+}
+
+.secondary {
+  background-color: var(--color-dark-300);
+  box-shadow: 0 2px 10px 0 rgb(109 109 109 / 15%);
+
+  &:hover {
+    background-color: var(--color-dark-100);
+  }
+
+  &:active {
+    background-color: var(--color-dark-500);
+  }
+
+  &:disabled {
+    color: var(--color-light-900);
+    background-color: var(--color-dark-300);
+  }
+
+  @media screen and (width <= 320px) {
+    padding: 6px 14px;
+    font-size: var(--font-size-xs);
+  }
+}
+
+.danger {
+  background-color: var(--color-danger-300);
+  box-shadow: 0 2px 10px 0 rgb(109 109 109 / 25%);
+
+  &:hover {
+    background-color: var(--color-danger-100);
+  }
+
+  &:active {
+    background-color: var(--color-danger-500);
+  }
+
+  &:disabled {
+    color: var(--color-light-900);
+    background-color: var(--color-danger-900);
+  }
+
+  @media screen and (width <= 320px) {
+    padding: 6px 14px;
+    font-size: var(--font-size-xs);
+  }
+}
+
+.link {
+  padding: 0;
+  color: var(--color-accent-500);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-accent-300);
+  }
+
+  &:active {
+    color: var(--color-accent-700);
+  }
+
+  &:focus-visible {
+    color: var(--color-accent-500);
+    outline: var(--outline-width-m) solid var(--color-info-700);
+  }
+
+  &:disabled {
+    color: var(--color-accent-900);
+  }
+}
+
+.icon {
+  margin: 0;
+  padding: 0;
+
+  &:disabled {
+    color: var(--color-dark-300);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
