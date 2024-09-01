@@ -1,7 +1,7 @@
-import { Game } from './game.js'
-import { EventEmitter } from './eventEmitter.js'
-import { GameComponentView } from './view.js'
-import { Controller } from './controller.js'
+import { Game } from '../game.js'
+import { EventEmitter } from '../eventEmitter.js'
+import { GameComponentView } from '../view.js'
+import { Controller } from '../controller.js'
 
 const startGame = async () => {
   // const eventEmitter = new EventEmitter()

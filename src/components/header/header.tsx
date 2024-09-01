@@ -8,7 +8,7 @@ import { Select } from '../select'
 import GoogleIcon from '../../assets/components/google-icon'
 import { GameSettings } from '@/App'
 import { parseGameGridString } from '../../utils/parseGameGridString'
-import { MODE } from '../../utils/enums'
+import { MODE } from '../../utils/common.ts'
 
 type Props = ComponentPropsWithoutRef<typeof Card> & {
   onSettingsChange: (settings: Partial<GameSettings>) => void

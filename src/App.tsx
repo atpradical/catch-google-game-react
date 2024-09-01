@@ -5,7 +5,15 @@ import { Game } from './game'
 import { Controller } from './controller'
 import { EventEmitter } from './EventEmitter'
 import { useEffect, useRef, useState } from 'react'
-import { MODE, PLAYERS, STATUS, STEP_SIZE } from './utils/enums'
+import {
+  defaultSettings,
+  GameSettings,
+  MODE,
+  PLAYERS,
+  Scores,
+  STATUS,
+  STEP_SIZE,
+} from './utils/common'
 import { DialogResult } from './components/layout-components/dialog-result/dialog-result'
 
 export function App() {
@@ -36,29 +44,27 @@ export function App() {
   const [gameWinner, setGameWinner] = useState()
 
   const startGameHandler = async () => {
-    controller.setGameSettings(gameSettings)
-    await controller.startGame()
-    setGoogleData(controller.getGoogleData())
-    setPlayerOne(controller.getPlayerData('player1'))
-    setPlayerTwo(controller.getPlayerData('player2'))
-    setScores(controller.getGameScore())
-
-    console.log('gameSettings is ', gameSettings)
+    controller?.setGameSettings(gameSettings)
+    await controller?.startGame()
+    setGoogleData(controller?.getGoogleData())
+    setPlayerOne(controller?.getPlayerData('player1'))
+    setPlayerTwo(controller?.getPlayerData('player2'))
+    setScores(controller?.getGameScore())
   }
 
   const restartGameHandler = async () => {
-    controller.setGameSettings(userGameSettings)
-    await controller.startGame()
+    controller?.setGameSettings(userGameSettings)
+    await controller?.startGame()
   }
 
   useEffect(() => {
     const gameDataChanged = async () => {
-      setGoogleData(controller.getGoogleData())
-      setPlayerOne(controller.getPlayerData('player1'))
-      setPlayerTwo(controller.getPlayerData('player2'))
-      setGameSettings(prevSettings => ({ ...prevSettings, ...controller.getGameSettings() }))
-      setGameStatus(controller.getGameStatus())
-      setScores(await controller.getGameScore())
+      setGoogleData(controller?.getGoogleData())
+      setPlayerOne(controller?.getPlayerData('player1'))
+      setPlayerTwo(controller?.getPlayerData('player2'))
+      setGameSettings(prevSettings => ({ ...prevSettings, ...controller?.getGameSettings() }))
+      setGameStatus(controller?.getGameStatus())
+      setScores(await controller?.getGameScore())
     }
 
     eventEmitter?.subscribe('change', gameDataChanged)
@@ -66,20 +72,18 @@ export function App() {
   }, [])
 
   useEffect(() => {
-    // типизация гарантирует что ключами этого объекта могут быть строки, а значениями — функции
     const playersControlsHandlers: Record<string, () => void> = {
-      ArrowUp: () => controller.movePlayer(PLAYERS.ONE, STEP_SIZE.UP),
-      ArrowDown: () => controller.movePlayer(PLAYERS.ONE, STEP_SIZE.DOWN),
-      ArrowLeft: () => controller.movePlayer(PLAYERS.ONE, STEP_SIZE.LEFT),
-      ArrowRight: () => controller.movePlayer(PLAYERS.ONE, STEP_SIZE.RIGHT),
+      ArrowUp: () => controller?.movePlayer(PLAYERS.ONE, STEP_SIZE.UP),
+      ArrowDown: () => controller?.movePlayer(PLAYERS.ONE, STEP_SIZE.DOWN),
+      ArrowLeft: () => controller?.movePlayer(PLAYERS.ONE, STEP_SIZE.LEFT),
+      ArrowRight: () => controller?.movePlayer(PLAYERS.ONE, STEP_SIZE.RIGHT),
 
-      KeyW: () => controller.movePlayer(PLAYERS.TWO, STEP_SIZE.UP),
-      KeyS: () => controller.movePlayer(PLAYERS.TWO, STEP_SIZE.DOWN),
-      KeyA: () => controller.movePlayer(PLAYERS.TWO, STEP_SIZE.LEFT),
-      KeyD: () => controller.movePlayer(PLAYERS.TWO, STEP_SIZE.RIGHT),
+      KeyW: () => controller?.movePlayer(PLAYERS.TWO, STEP_SIZE.UP),
+      KeyS: () => controller?.movePlayer(PLAYERS.TWO, STEP_SIZE.DOWN),
+      KeyA: () => controller?.movePlayer(PLAYERS.TWO, STEP_SIZE.LEFT),
+      KeyD: () => controller?.movePlayer(PLAYERS.TWO, STEP_SIZE.RIGHT),
     }
 
-    // встроенный тип KeyboardEvent в TS для работы с событиями клавиатуры
     const bindPlayersControls = (e: KeyboardEvent) => {
       const handler = playersControlsHandlers[e.code]
       if (handler) {
@@ -99,7 +103,7 @@ export function App() {
     const newSettings = { ...gameSettings, ...settings }
     setGameSettings(newSettings)
     setUserGameSettings(newSettings)
-    controller.setGameSettings(newSettings)
+    controller?.setGameSettings(newSettings)
   }
 
   const isInProgress = gameStatus === STATUS.IN_PROGRESS
@@ -109,12 +113,10 @@ export function App() {
   useEffect(() => {
     if (isFinished) {
       setShowDialog(true)
-      setGameWinner(controller.getGameWinner())
+      setGameWinner(controller?.getGameWinner())
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFinished])
-
-  console.log('gameWinner is', gameWinner)
 
   return (
     <Layout onSettingsChange={changeGameSettingsHandler} disabled={isInProgress || isFinished}>
@@ -149,47 +151,3 @@ export function App() {
     </Layout>
   )
 }
-
-// types:
-
-//todo: вынести типизацию
-type Score = {
-  points: number
-}
-
-export type Scores = Record<string, Score>
-
-export type Position = {
-  x: number
-  y: number
-}
-
-export type Player = {
-  id: number
-  position: Position
-  winner: boolean
-}
-
-export type Unit = Omit<Player, 'winner'>
-
-const defaultSettings: GameSettings = {
-  playersAmount: 1,
-  pointsToWin: 20,
-  gameTimer: 30000,
-  gridSize: { x: 4, y: 4 },
-  gameMode: MODE.SINGLE,
-}
-
-export type GameSettings = {
-  playersAmount: number
-  pointsToWin: number
-  gameTimer: number
-  gridSize: Coordinates
-  gameMode: GameMode
-}
-
-type Coordinates = {
-  x: number
-  y: number
-}
-type GameMode = MODE

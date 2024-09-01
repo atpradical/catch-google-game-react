@@ -1,5 +1,5 @@
-import { PLAYERS, STATUS, STEP_SIZE } from './utils/constants.js'
-import { msToMMSS } from './utils/msToMMSS.ts'
+import { PLAYERS, STATUS, STEP_SIZE } from '../utils/constants.js'
+import { msToMMSS } from '../utils/msToMMSS.ts'
 
 export class GameComponentView {
   #gameContainerElement

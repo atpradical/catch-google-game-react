@@ -1,8 +1,8 @@
-import { Scores } from '@/App'
 import { Card } from '../../card'
 import { Typography } from '../../typography'
 import s from './score-board.module.scss'
 import { Timer } from '../timer'
+import { Scores } from '../../../utils/common'
 
 type ScoreBarProps = {
   scores: Scores | null
