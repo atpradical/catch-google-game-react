@@ -1,0 +1,15 @@
+.card {
+  width: 350px;
+  background-color: #6e75664d;
+  border-radius: var(--border-radius-s);
+  margin-top: 20px;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.scoreCount {
+  color: var(--color-success-500);
+}

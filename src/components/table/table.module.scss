@@ -1,0 +1,19 @@
+.table {
+  border-spacing: 5px;
+}
+
+.tableRow {
+  display: table-row;
+  width: 100%;
+}
+
+.cell {
+  height: 75px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid var(--color-dark-300);
+  border-radius: var(--border-radius-s);
+  width: 75px;
+  padding: 12px 12px;
+  background-color: var(--color-dark-700);
+}

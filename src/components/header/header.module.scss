@@ -1,0 +1,28 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: var(--header-height);
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+}
+
+.container {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.settings {
+  margin: 0 20px;
+  width: fit-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}

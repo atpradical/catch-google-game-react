@@ -1,41 +1,42 @@
-import {Game} from "./game.js";
-import {EventEmitter} from "./utils/observer/eventEmitter.js";
-import {GameComponentView} from "./view.js";
-import {Controller} from "./controller.js";
-import {parseGameGridString} from "./utils/parseGameGridString.js";
+import { Game } from './game.js'
+import { EventEmitter } from './eventEmitter.js'
+import { GameComponentView } from './view.js'
+import { Controller } from './controller.js'
+import { parseGameGridString } from './utils/parseGameGridString.ts'
 
 const startGame = async () => {
-    const eventEmitter = new EventEmitter()
-    const game = new Game(eventEmitter);
+  console.log('GAAAAMEEE!!!')
+  const eventEmitter = new EventEmitter()
+  const game = new Game(eventEmitter)
 
-    game.settings = getUserGameSettings()
-    await game.gameStart()
+  game.settings = getUserGameSettings()
+  await game.gameStart()
 
-    const controller = new Controller(game)
-    const view = new GameComponentView(controller, game)
-    view.render()
+  const controller = new Controller(game)
+  const view = new GameComponentView(controller, game)
+  view.render()
 }
 
 const getUserGameSettings = () => {
-    const userSettings = {}
+  const userSettings = {}
 
-    const gridSizeElement = document.querySelector('#grid-size').value
-    userSettings.gridSize = parseGameGridString(gridSizeElement)
+  const gridSizeElement = document.querySelector('#grid-size').value
+  userSettings.gridSize = parseGameGridString(gridSizeElement)
 
-    const pointsToWinElement = document.querySelector('#points-to-win').value
-    userSettings.pointsToWin = Number(pointsToWinElement)
+  const pointsToWinElement = document.querySelector('#points-to-win').value
+  userSettings.pointsToWin = Number(pointsToWinElement)
 
-    const timeLeftElement = document.querySelector('#game-time').value
-    userSettings.gameTime = Number(timeLeftElement)
+  const timeLeftElement = document.querySelector('#game-time').value
+  userSettings.gameTime = Number(timeLeftElement)
 
-    const gameModeElement = document.querySelector('#game-mode').value
-    userSettings.gameMode = gameModeElement
+  const gameModeElement = document.querySelector('#game-mode').value
+  userSettings.gameMode = gameModeElement
 
-    if (gameModeElement === 'multiplayer') {
-        userSettings.playersAmount = 2
-    }
+  if (gameModeElement === 'multiplayer') {
+    userSettings.playersAmount = 2
+  }
 
-    return userSettings
+  return userSettings
 }
 
 const startGameHandler = () => {

@@ -1,222 +1,255 @@
 body {
-    margin: 0;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-style: normal;
-    min-width: 300px;
-    height: 100vh;
-    overflow: hidden;
+  overflow: hidden;
+
+  min-width: 300px;
+  height: 100vh;
+  margin: 0;
+
+  font-family:
+    Roboto,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .background {
-    background-image: url("./assets/body-background.png");
-    background-color: rgba(0, 0, 0);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: inherit;
+  background-color: rgb(0 0 0);
+  background-image: url('./assets/body-background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: inherit;
+  background-size: cover;
 }
 
 .container {
-    max-width: 1220px;
-    width: 100%;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 0 20px;
+  width: 100%;
+  max-width: 1220px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .flex-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-grow: 0;
-    gap: 10px;
-    height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 0;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
 }
 
 img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 td {
-    width: 80px;
-    height: 80px;
-    border: 2px solid rgb(153, 155, 149);
-    border-radius: 5px;
-    background: rgba(110, 117, 102, 0.3);
-    text-align: center;
-    padding: 6px 12px 6px 12px;
+  width: 80px;
+  height: 80px;
+  padding: 6px 12px;
+
+  text-align: center;
+
+  background: rgb(110 117 102 / 30%);
+  border: 2px solid rgb(153 155 149);
+  border-radius: 5px;
 }
 
 .td-title {
-    display: inline-block;
-    margin-bottom: 5px;
-    color: rgb(219, 218, 218);
-    font-size: 15px;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: rgb(219 218 218);
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .btn {
-    display: block;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    border: 2px solid rgb(117, 249, 76);
-    border-radius: 10px 2px 10px 2px;
-    box-shadow: 0 -4px 10px 2px rgba(88, 191, 57, 0.25), 0 4px 10px 2px rgba(88, 191, 57, 0.25);
-    background: rgb(88, 191, 57);
-    color: rgb(255, 255, 255);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: 0;
-    text-align: left;
-    margin-top:50px;
+  display: block;
+
+  box-sizing: border-box;
+  margin-top: 50px;
+  padding: 10px 20px;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgb(255 255 255);
+  text-align: left;
+  letter-spacing: 0;
+
+  background: rgb(88 191 57);
+  border: 2px solid rgb(117 249 76);
+  border-radius: 10px 2px;
+  box-shadow:
+    0 -4px 10px 2px rgb(88 191 57 / 25%),
+    0 4px 10px 2px rgb(88 191 57 / 25%);
 }
 
 .btn:active {
-    background: rgb(55, 127, 34);
+  background: rgb(55 127 34);
 }
 
-.btn:hover{
-    cursor: pointer;
+.btn:hover {
+  cursor: pointer;
 }
 
 .settings-container {
-    margin-bottom: 30px;
-    color: rgb(182, 253, 229);
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0;
-    text-align: left;
+  margin-bottom: 30px;
+
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(182 253 229);
+  text-align: left;
+  letter-spacing: 0;
 }
 
 .dropdown {
-    margin: 10px;
-    border-radius: 5px;
-    width: 200px;
-    height: 30px;
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 5px;
 }
 
 select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: aliceblue;
-    border-radius: 5px;
-    background: rgb(25, 26, 28);
+  width: 100%;
+  padding: 10px;
+
+  font-size: 16px;
+  color: aliceblue;
+
+  background: rgb(25 26 28);
+  border-radius: 5px;
 }
 
 option {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .game-container {
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+  flex-direction: column;
+  place-content: center center;
+  align-items: center;
 }
 
-/* ----------- game-results-block ------------*/
+/* ----------- game-results-block ------------ */
 .game-results {
-    width: 600px;
-    height: 48px;
-    margin: 20px 0;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 100px;
+  gap: 100px;
+  align-items: center;
+  justify-content: space-evenly;
 
-    border: 1px solid rgb(76, 94, 80);
-    border-radius: 30px;
-    background: rgba(57, 61, 55, 0.4);
+  width: 600px;
+  height: 48px;
+  margin: 20px 0;
+
+  background: rgb(57 61 55 / 40%);
+  border: 1px solid rgb(76 94 80);
+  border-radius: 30px;
 }
 
 .scoreboard {
-    color: rgb(255, 255, 255);
-    font-family: Roboto, serif;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 24px;
-    text-align: left;
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+
+  font-family: Roboto, serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(255 255 255);
+  text-align: left;
+  letter-spacing: 0;
+  vertical-align: middle;
 }
 
 .scorevalue {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 24px;
-    display: inline-block;
-    margin-left: 5px;
-    vertical-align: bottom;
+  display: inline-block;
+
+  margin-left: 5px;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  vertical-align: bottom;
 }
 
 .timer {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 24px;
-    display: inline-block;
-    margin-left: 5px;
-    vertical-align: bottom;
+  display: inline-block;
+
+  margin-left: 5px;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  vertical-align: bottom;
 }
 
 .red {
-    color: #ef115e;
+  color: #ef115e;
 }
 
 .notification {
-    width: fit-content;
-    height: 407px;
-    padding: 30px;
-    box-sizing: border-box;
-    border: 2px solid rgb(153, 155, 149);
-    border-radius: 30px;
-    background: rgba(110, 117, 102, 0.3);
-    flex-direction: column;
+  flex-direction: column;
 
-    color: rgb(255, 255, 255);
-    font-family: Roboto, serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0;
-    text-align: left;
+  box-sizing: border-box;
+  width: fit-content;
+  height: 407px;
+  padding: 30px;
+
+  font-family: Roboto, serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(255 255 255);
+  text-align: left;
+  letter-spacing: 0;
+
+  background: rgb(110 117 102 / 30%);
+  border: 2px solid rgb(153 155 149);
+  border-radius: 30px;
 }
 
 .notification-title {
-    color: rgb(255, 255, 255);
-    font-family: Roboto, serif;
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 60px;
-    letter-spacing: 0;
-    text-align: left;
-    margin: 20px 0;
+  margin: 20px 0;
+
+  font-family: Roboto, serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 60px;
+  color: rgb(255 255 255);
+  text-align: left;
+  letter-spacing: 0;
 }
 
 .notification-img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    display: inline-block;
-    margin-left: 5px;
-    vertical-align: bottom;
+  display: inline-block;
+
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+
+  vertical-align: bottom;
 }
+
 .notification-message {
-    color: rgb(219, 218, 218);
-    width: fit-content;
+  width: fit-content;
+  color: rgb(219 218 218);
 }
 
 .notification-message-value {
-    color: rgb(246, 18, 18);
-    margin-left: 10px;
+  margin-left: 10px;
+  color: rgb(246 18 18);
 }
